@@ -4,51 +4,18 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="shortcut icon" href="#">
 </head>
 <body class="w-1/2 mx-auto border border-4 min-h-screen">
-  <div>
     <form id="form1" method="get">
       <input class="border m-2 p-4" type="submit" value="get data">
     </form>
-  </div>
-  <div>
     <form id="form2" method="get">
       <input class="border m-2 p-4" type="submit" value="get data">
     </form>
-  </div>
   <div id="loading-indicator"></div>
   <div id="results">
   </div>
-  <script>
-    const loadingIndicator = document.getElementById("loading-indicator");
-    const form = document.getElementById("form1");
-    const results = document.getElementById("results");
-    form.addEventListener("submit", async (e) => {
-      e.preventDefault();
-      loadingIndicator.innerHTML = "fetching data...";
-
-      let start = Date.now();
-      let response = await fetch("http://localhost:5000/get-data");
-      let timeTaken = Date.now() - start;
-      loadingIndicator.innerHTML = timeTaken + " ms";
-
-      let data = await response.json();
-      results.innerText = data;
-    });
-
-    const form2 = document.getElementById("form2");
-    form2.addEventListener("submit", async (e) => {
-      e.preventDefault();
-      loadingIndicator.innerHTML = "fetching data...";
-
-      let start = Date.now();
-      let response = await fetch("http://localhost:5000/get-data-2");
-      let timeTaken = Date.now() - start;
-      loadingIndicator.innerHTML = timeTaken + " ms";
-
-      let data = await response.json();
-      results.innerText = data;
-    });
-  </script>
+  <script src="{{ url_for('static', filename='app.js') }}"></script>
 </body>
 </html>
