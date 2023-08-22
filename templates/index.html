@@ -20,9 +20,11 @@
     form.addEventListener("submit", async (e) => {
       e.preventDefault();
       loadingIndicator.innerHTML = "fetching data...";
+
       let response = await fetch("http://localhost:5000/get-data");
+      let data = await response.json();
       loadingIndicator.innerHTML = "";
-      console.log(response);
+      console.log(data);
     });
   </script>
 </body>
