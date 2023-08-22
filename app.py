@@ -41,3 +41,17 @@ async def get_data():
         books = get_books(author_id)
         output.append(books)
     return jsonify(output)
+
+
+def query_all():
+    cur = conn.cursor()
+    sql = f"SELECT * FROM Author, Book JOIN Author ON Book.author_id = Author.id"
+    cur.execute(sql)
+    x = cur.fetchall()
+    print(x)
+    return x
+
+
+@app.get("/get-data-2")
+async def get_data2():
+    return jsonify(query_all())
