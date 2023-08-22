@@ -16,7 +16,7 @@ def get_authors():
 
 def get_books_1(author_id):
     cur = conn.cursor()
-    cur.execute(f"SELECT * FROM Book WHERE author_id = {author_id}")
+    cur.execute(f"SELECT Book.id FROM Book WHERE author_id = {author_id}")
     res = cur.fetchall()
     cur.close()
     return res
@@ -24,7 +24,7 @@ def get_books_1(author_id):
 
 def get_books_2():
     cur = conn.cursor()
-    sql = f"SELECT * FROM Book JOIN Author ON Book.author_id = Author.id"
+    sql = f"SELECT Author.id, Book.id FROM Book JOIN Author ON Book.author_id = Author.id"
     cur.execute(sql)
     res = cur.fetchall()
     cur.close()
@@ -43,7 +43,8 @@ async def get_data():
     for author in authors:
         author_id = author[0]
         books = get_books_1(author_id)
-        output.append(books)
+        for book in books:
+            output.append([author_id, book[0]])
     return jsonify(output)
 
 

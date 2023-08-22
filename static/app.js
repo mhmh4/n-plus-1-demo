@@ -15,7 +15,7 @@ form1.addEventListener("submit", async (e) => {
   loadingIndicator.innerHTML = timeTaken + " ms";
 
   let data = await response.json();
-  results.innerText = data;
+  results.innerText = JSON.stringify(data);
 });
 
 form2.addEventListener("submit", async (e) => {
@@ -29,5 +29,6 @@ form2.addEventListener("submit", async (e) => {
   loadingIndicator.innerHTML = timeTaken + " ms";
 
   let data = await response.json();
-  results.innerText = data;
+  console.log(data);
+  results.innerText = JSON.stringify(data);
 });
