@@ -1,7 +1,7 @@
 import sqlite3
 import sys
 
-db = sqlite3.connect("./database.sqlite")
+db = sqlite3.connect("./instance/database.sqlite")
 if not db:
     sys.exit()
 
