@@ -3,19 +3,33 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <script src="https://cdn.tailwindcss.com"></script>
   <link rel="shortcut icon" href="#">
+  <style>
+    body {
+      font-family: sans-serif;
+      width: 50vw;
+      margin: 0 auto;
+      overflow-y: scroll;
+    }
+
+    #results {
+      white-space: pre-line;
+    }
+  </style>
 </head>
-<body class="w-1/2 mx-auto border border-4 min-h-screen">
-    <form id="form1" method="get">
-      <input class="border m-2 p-4" type="submit" value="get data">
+<body>
+  <h1>NP1E</h1>
+  <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Ab velit quisquam distinctio neque incidunt architecto, nesciunt nisi, recusandae illo animi natus soluta! Consectetur ea ex sapiente, molestias odio error nulla.</p>
+  <div>
+    <form id="form1">
+      <input type="submit" value="Method 1: two queries">
     </form>
-    <form id="form2" method="get">
-      <input class="border m-2 p-4" type="submit" value="get data">
+    <form id="form2">
+      <input type="submit" value="Method 2: one query using JOIN">
     </form>
-  <div id="loading-indicator"></div>
-  <div id="results">
   </div>
+  <div id="loading-indicator"></div>
+  <pre id="results"></pre>
   <script src="{{ url_for('static', filename='app.js') }}"></script>
 </body>
 </html>
