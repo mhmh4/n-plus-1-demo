@@ -1,9 +1,0 @@
-CREATE TABLE Author (
-  id INTEGER PRIMARY KEY
-);
-
-CREATE TABLE Book (
-  id INTEGER PRIMARY KEY,
-  author_id INTEGER,
-  FOREIGN KEY (author_id) REFERENCES Author(id)
-);
