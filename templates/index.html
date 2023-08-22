@@ -7,17 +7,19 @@
 </head>
 <body class="w-1/2 mx-auto border border-4 min-h-screen">
   <div>
-    <form action="post">
-
+    <form id="form" method="get">
+      <input class="border m-2 p-4" type="submit" value="get data">
     </form>
   </div>
-  <h1 class="text-3xl font-bold underline">
-    Hello world!
-  </h1>
   <div>
   </div>
   <script>
-
+    const form = document.getElementById("form");
+    form.addEventListener("submit", async (e) => {
+      e.preventDefault();
+      let response = await fetch("http://localhost:5000/get-data");
+      console.log(response);
+    });
   </script>
 </body>
 </html>
