@@ -9,23 +9,26 @@ conn = sqlite3.connect("./instance/database.sqlite", check_same_thread=False)
 def get_authors():
     cur = conn.cursor()
     cur.execute("SELECT * FROM Author")
+    res = cur.fetchall()
     cur.close()
-    return cur.fetchall()
+    return res
 
 
 def get_books_1(author_id):
     cur = conn.cursor()
     cur.execute(f"SELECT * FROM Book WHERE author_id = {author_id}")
+    res = cur.fetchall()
     cur.close()
-    return cur.fetchall()
+    return res
 
 
 def get_books_2():
     cur = conn.cursor()
     sql = f"SELECT * FROM Book JOIN Author ON Book.author_id = Author.id"
     cur.execute(sql)
+    res = cur.fetchall()
     cur.close()
-    return cur.fetchall()
+    return res
 
 
 @app.get("/")
