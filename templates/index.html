@@ -11,13 +11,17 @@
       <input class="border m-2 p-4" type="submit" value="get data">
     </form>
   </div>
+  <div id="loading-indicator"></div>
   <div>
   </div>
   <script>
+    const loadingIndicator = document.getElementById("loading-indicator");
     const form = document.getElementById("form");
     form.addEventListener("submit", async (e) => {
       e.preventDefault();
+      loadingIndicator.innerHTML = "fetching data...";
       let response = await fetch("http://localhost:5000/get-data");
+      loadingIndicator.innerHTML = "";
       console.log(response);
     });
   </script>
