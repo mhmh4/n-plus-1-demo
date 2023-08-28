@@ -18,17 +18,16 @@
   </style>
 </head>
 <body>
-  <h1>NP1E</h1>
-  <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Ab velit quisquam distinctio neque incidunt architecto, nesciunt nisi, recusandae illo animi natus soluta! Consectetur ea ex sapiente, molestias odio error nulla.</p>
-  <div>
+  <h2>N+1 Query Problem Demonstration</h2>
+  <div style="display: flex;">
     <form id="form1">
-      <input type="submit" value="Method 1: two queries">
+      <input type="submit" value="Method 1: two queries" style="margin-right: 10px;">
     </form>
     <form id="form2">
       <input type="submit" value="Method 2: one query using JOIN">
     </form>
   </div>
-  <div id="loading-indicator"></div>
+  <div id="loading-indicator" style="margin-top: 10px;"></div>
   <pre id="results"></pre>
   <script src="{{ url_for('static', filename='app.js') }}"></script>
 </body>
